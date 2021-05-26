@@ -4,19 +4,25 @@
 class Graph {
   constructor() {
     // Code goes here ...
-    this.list = {}
+    this.adjList = {}
 
   }
 
   addVertex(vertex) {
-    if (!vertex in this.list) {
-      this.list
+    if (!(vertex in this.adjList)) {
+      this.adjList[vertex] = []
     }
-
   }
 
   addEdges(srcValue, destValue) {
-    // Code goes here ...
+    if (!(destValue in this.adjList)) {
+      this.addVertex(destValue)
+    }
+    if (!(srcValue in this.adjList)) {
+      this.addVertex(srcValue)
+    }
+    this.adjList[srcValue].push(destValue)
+    this.adjList[destValue].push(srcValue)
 
   }
 
@@ -39,25 +45,25 @@ class Graph {
 }
 
 
-let newGraph = new Graph();
-//add a to newGraph
+// let newGraph = new Graph();
+// //add a to newGraph
 
-let a = new _GraphNode('a');
-let b = new _GraphNode('b');
-let c = new _GraphNode('c');
-let d = new _GraphNode('d');
-let e = new _GraphNode('e');
-let f = new _GraphNode('f');
-a.neighbors = [b, c, e];
-c.neighbors = [b, d];
-e.neighbors = [a];
-f.neighbors = [e];
+// let a = new _GraphNode('a');
+// let b = new _GraphNode('b');
+// let c = new _GraphNode('c');
+// let d = new _GraphNode('d');
+// let e = new _GraphNode('e');
+// let f = new _GraphNode('f');
+// a.neighbors = [b, c, e];
+// c.neighbors = [b, d];
+// e.neighbors = [a];
+// f.neighbors = [e];
 
-newGraph.addVertex(a)
-newGraph.addVertex(b)
-newGraph.addVertex(a)
-newGraph.addVertex(a)
-newGraph.addVertex(a)
+// newGraph.addVertex(a)
+// newGraph.addVertex(b)
+// newGraph.addVertex(a)
+// newGraph.addVertex(a)
+// newGraph.addVertex(a)
 
 
 
