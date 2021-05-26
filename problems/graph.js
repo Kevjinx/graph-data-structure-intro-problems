@@ -23,11 +23,13 @@ class Graph {
     }
     this.adjList[srcValue].push(destValue)
     this.adjList[destValue].push(srcValue)
-
   }
 
   buildGraph(edges) {
-    // Code goes here ...
+    edges.forEach(el => {
+      this.addEdges(el[0], el[1])
+    })
+    return this.adjList
   }
 
   breadthFirstTraversal(startingVertex) {
