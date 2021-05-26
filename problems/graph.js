@@ -37,7 +37,6 @@ class Graph {
     let resultArr = []
 
     while (queue.length) {
-      // take off the front
       let curr = queue.shift()
       if (visited.has(curr)) continue
       visited.add(curr)
@@ -56,15 +55,36 @@ class Graph {
     return resultArr
   }
 
-  depthFirstTraversalIterative(startingVertex) {
-    // Code goes here ...
+  depthFirstTraversalIterative(startingVertex, visited = new Set()) {
+    let stack = [startingVertex]
+    let resultArr = []
+
+    while (stack.length) {
+      let lastEle = stack.pop()
+      if (visited.has(lastEle)) continue
+      visited.add(lastEle)
+      resultArr.push(lastEle)
+
+      stack.push(...this.adjList[lastEle])
+    }
+    return resultArr
+
   }
 
   depthFirstTraversalRecursive(startingVertex, visited = new Set(), vertices = []) {
-    // Code goes here ...
-  }
 
+    if (visited.has(startingVertex)) return
+    vertices.push(startingVertex)
+    visited.add(startingVertex)
+
+    this.adjList[startingVertex].forEach(neighbor => {
+      this.depthFirstTraversalRecursive(neighbor, visited, vertices)
+    })
+
+    return vertices
+  }
 }
+
 
 
 // let newGraph = new Graph();
