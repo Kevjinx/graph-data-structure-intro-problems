@@ -1,26 +1,23 @@
 
-class _GraphNode {
-  constructor(val) {
-    this.val = val
-    this.neighbor = []
-  }
-}
 
 
 class Graph {
   constructor() {
     // Code goes here ...
-    this.storage = [];
+    this.list = {}
 
   }
 
   addVertex(vertex) {
-    let newVertex = _GraphNode(vertex)
-    this.storage.push(newVertex)
+    if (!vertex in this.list) {
+      this.list
+    }
+
   }
 
   addEdges(srcValue, destValue) {
     // Code goes here ...
+
   }
 
   buildGraph(edges) {
@@ -45,7 +42,24 @@ class Graph {
 let newGraph = new Graph();
 //add a to newGraph
 
-newGrapg.addVertex(a)
+let a = new _GraphNode('a');
+let b = new _GraphNode('b');
+let c = new _GraphNode('c');
+let d = new _GraphNode('d');
+let e = new _GraphNode('e');
+let f = new _GraphNode('f');
+a.neighbors = [b, c, e];
+c.neighbors = [b, d];
+e.neighbors = [a];
+f.neighbors = [e];
+
+newGraph.addVertex(a)
+newGraph.addVertex(b)
+newGraph.addVertex(a)
+newGraph.addVertex(a)
+newGraph.addVertex(a)
+
+
 
 
 
