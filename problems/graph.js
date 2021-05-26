@@ -1,11 +1,22 @@
 
+class _GraphNode {
+  constructor(val) {
+    this.val = val
+    this.neighbor = []
+  }
+}
+
+
 class Graph {
   constructor() {
     // Code goes here ...
+    this.storage = [];
+
   }
 
   addVertex(vertex) {
-    // Code goes here ...
+    let newVertex = _GraphNode(vertex)
+    this.storage.push(newVertex)
   }
 
   addEdges(srcValue, destValue) {
@@ -30,15 +41,17 @@ class Graph {
 
 }
 
+
+let newGraph = new Graph();
+//add a to newGraph
+
+newGrapg.addVertex(a)
+
+
+
+
+
+
 module.exports = {
   Graph
 };
-
-
-
-
-
-
-
-
-
