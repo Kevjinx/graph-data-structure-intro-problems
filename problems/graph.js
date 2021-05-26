@@ -32,8 +32,28 @@ class Graph {
     return this.adjList
   }
 
-  breadthFirstTraversal(startingVertex) {
-    // Code goes here ...
+  breadthFirstTraversal(startingVertex, visited = new Set()) {
+    let queue = [startingVertex]
+    let resultArr = []
+
+    while (queue.length) {
+      // take off the front
+      let curr = queue.shift()
+      if (visited.has(curr)) continue
+      visited.add(curr)
+      resultArr.push(curr)
+      queue.push(...this.adjList[curr])
+
+      // this.adjList[queue[0]].forEach(neighbor => {
+      //   if (!(visited.has(neighbor))) {
+      //     visited.add(neighbor)
+      //     queue.push(neighbor)
+      //     resultArr.push(queue.shift())
+      //   }
+      // })
+
+    }
+    return resultArr
   }
 
   depthFirstTraversalIterative(startingVertex) {
